@@ -4,12 +4,14 @@
 # generic azure ressource group managment from CAST
 #|# force defaul sourcing as null vars
 ConfigState=""
+ConfigBasePath="../config/config.cnf"
+
 
 printf "\n" 
 printf  "Sourcing base configuration file :" 
-if [[ -f ../conf/config.cnf  ]]
+if [[ -f ${ConfigBasePath}  ]]
    then 
-       . ../conf/config.cnf 2> /dev/null  
+       . ${ConfigBasePath} 2> /dev/null  
        if [[  ${?} -ge 1 ]] && [[ ! ${ConfigState} = "OK" ]]
           then 
               printf " ERROR \n" 
